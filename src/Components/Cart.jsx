@@ -3,9 +3,13 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 function Cart() {
+
+  //Access cart items from Redux store
   const cartItems = useSelector((state) => state.cart.items);
+
+  // Calculate total amount
   const totalAmount = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) => total + item.price * item.quantity,  
     0
   );
   return (
@@ -19,7 +23,7 @@ function Cart() {
             <button className="button" disabled>Proceed to CHeckout</button>
           </Link>
         </>
-      ) : (
+      ) : ( // render the items if the cart is not empty
         <>
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item}></CartItem>

@@ -14,7 +14,7 @@ function ProductDeatails() {
   }
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
+    fetch(`https://dummyjson.com/products/${id}`)  // fetch the data
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log("Error fetching products"));

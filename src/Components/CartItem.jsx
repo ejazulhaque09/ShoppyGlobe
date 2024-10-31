@@ -3,19 +3,24 @@ import {removeFromCart, updateCartByQuantity} from '../redux/actions'
 
 function CartItem ({item}){
     const dispatch = useDispatch();
+    //function to handle removing the item from the cart
     function handleRemove() {
         dispatch(removeFromCart(item.id));
     }
 
+    //function to handle increasing the quantity of cart
     function handleIncrease(){
         dispatch(updateCartByQuantity(item.id, item.quantity + 1))
     }
+
+        //function to handle increasing the quantity of cart
+
     function handleDecrease(){
         if(item.quantity > 1){
             dispatch(updateCartByQuantity(item.id, item.quantity - 1))
         }
         else{
-            handleRemove();
+            handleRemove();  // if quantity is 1 removes the item on decreasing
         }
     }
     return(

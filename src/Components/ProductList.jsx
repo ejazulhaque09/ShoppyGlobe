@@ -3,7 +3,7 @@ import ProductItem from'./ProductItem';
 function ProductList(){
     const{products, error} = useFetchProduct();
     
-    function groupByCategory(products){
+    function groupByCategory(products){   // group the item by category
         return products.reduce((categories, product) =>{
             const category = product.category;
             if(!categories[category]) {
